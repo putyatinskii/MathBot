@@ -11,10 +11,14 @@ import ru.putiatinskii.bot.commands.operation_commands.*;
 import ru.putiatinskii.bot.commands.service_commands.HelpCommand;
 import ru.putiatinskii.bot.commands.service_commands.StartCommand;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Bot extends TelegramLongPollingCommandBot {
 
     private static final Logger LOGGER = Logger.getLogger(Bot.class);
-    private static LEVEL lvl = LEVEL.LVL1;
+    private static LEVEL Deflvl = LEVEL.LVL1;
+    private static Map<Long, LEVEL> userLvl;
     private final String BOT_NAME;
     private final String BOT_TOKEN;
 
@@ -29,10 +33,16 @@ public class Bot extends TelegramLongPollingCommandBot {
         register(new DivisionCommand("division", "Деление"));
         register(new SquaringCommand("squaring", "Возведение в квадрат"));
         register(new MixCommand("mix", "Сложение, вычитание, умножение и деление"));
+        userLvl = new HashMap<>();
     }
 
-    public static LEVEL getLvl() {
-        return lvl;
+    public static LEVEL getLvl(Long chatId) {
+        LEVEL lvl = userLvl.get(chatId);
+        if (lvl == null) {
+            return Deflvl;
+        } else {
+            return lvl;
+        }
     }
 
     public String getBotUsername() {
@@ -55,7 +65,7 @@ public class Bot extends TelegramLongPollingCommandBot {
             int lvlInt = msgText.charAt(0) - '0';
             lvlInt--;
             if (lvlInt >=0 && lvlInt <=3) {
-                this.lvl = LEVEL.values()[lvlInt];
+                userLvl.put(chatId, LEVEL.values()[lvlInt]);
                 answer = "Уровень успешно изменен";
                 setAnswer(chatId, userName, answer);
             } else {

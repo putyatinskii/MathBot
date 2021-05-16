@@ -43,7 +43,7 @@ public abstract class OperationCommand extends BotCommand {
     }
 
     private SendDocument createDocument(Long chatId, List<Operations> operations, String fileName) throws IOException {
-        FileInputStream stream = service.getOperationFile(operations, Bot.getLvl());
+        FileInputStream stream = service.getOperationFile(operations, Bot.getLvl(chatId));
         SendDocument document = new SendDocument();
         document.setChatId(chatId.toString());
         document.setDocument(new InputFile(stream, String.format("%s.docx", fileName)));
