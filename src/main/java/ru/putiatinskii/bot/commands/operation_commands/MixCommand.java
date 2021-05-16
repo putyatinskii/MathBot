@@ -21,7 +21,7 @@ public class MixCommand extends OperationCommand{
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         String userName = Utils.getUserName(user);
 
-        LOGGER.debug(String.format("Пользователь %s. Начато выполнение команды %s", userName,
+        LOGGER.debug(String.format("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ %s. РќР°С‡Р°С‚Рѕ РІС‹РїРѕР»РЅРµРЅРёРµ РєРѕРјР°РЅРґС‹ %s", userName,
                 this.getCommandIdentifier()));
         sendAnswer(absSender, chat.getId(), Arrays.asList(
                 Operations.ADDITION,
@@ -32,7 +32,8 @@ public class MixCommand extends OperationCommand{
                 this.getCommandIdentifier(),
                 userName
         );
-        LOGGER.debug(String.format("Пользователь %s. Завершено выполнение команды %s", userName,
+        LOGGER.debug(String.format("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ %s. Р—Р°РІРµСЂС€РµРЅРѕ РІС‹РїРѕР»РЅРµРЅРёРµ РєРѕРјР°РЅРґС‹ %s", userName,
                 this.getCommandIdentifier()));
+
     }
 }

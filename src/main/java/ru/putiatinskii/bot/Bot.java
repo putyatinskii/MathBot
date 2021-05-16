@@ -21,14 +21,14 @@ public class Bot extends TelegramLongPollingCommandBot {
     public Bot(String botName, String botToken) {
         this.BOT_NAME = botName;
         this.BOT_TOKEN = botToken;
-        register(new StartCommand("start", "Ñòàðò"));
-        register(new HelpCommand("help", "Ïîìîùü"));
-        register(new PlusCommand("plus", "Ñëîæåíèå"));
-        register(new MinusCommand("minus", "Âû÷èòàíèå"));
-        register(new MultiplicationCommand("multiplication", "Óìíîæåíèå"));
-        register(new DivisionCommand("division", "Äåëåíèå"));
-        register(new SquaringCommand("squaring", "Âîçâåäåíèå â êâàäðàò"));
-        register(new MixCommand("mix", "Ñëîæåíèå, âû÷èòàíèå, óìíîæåíèå è äåëåíèå"));
+        register(new StartCommand("start", "Ð¡Ñ‚Ð°Ñ€Ñ‚"));
+        register(new HelpCommand("help", "ÐŸÐ¾Ð¼Ð¾Ñ‰ÑŒ"));
+        register(new PlusCommand("plus", "Ð¡Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ"));
+        register(new MinusCommand("minus", "Ð’Ñ‹Ñ‡Ð¸Ñ‚Ð°Ð½Ð¸Ðµ"));
+        register(new MultiplicationCommand("multiplication", "Ð£Ð¼Ð½Ð¾Ð¶ÐµÐ½Ð¸Ðµ"));
+        register(new DivisionCommand("division", "Ð”ÐµÐ»ÐµÐ½Ð¸Ðµ"));
+        register(new SquaringCommand("squaring", "Ð’Ð¾Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð² ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚"));
+        register(new MixCommand("mix", "Ð¡Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ, Ð²Ñ‹Ñ‡Ð¸Ñ‚Ð°Ð½Ð¸Ðµ, ÑƒÐ¼Ð½Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¸ Ð´ÐµÐ»ÐµÐ½Ð¸Ðµ"));
     }
 
     public static LEVEL getLvl() {
@@ -56,15 +56,15 @@ public class Bot extends TelegramLongPollingCommandBot {
             lvlInt--;
             if (lvlInt >=0 && lvlInt <=3) {
                 this.lvl = LEVEL.values()[lvlInt];
-                answer = "Óðîâåíü óñïåøíî èçìåíåí";
+                answer = "Ð£Ñ€Ð¾Ð²ÐµÐ½ÑŒ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½";
                 setAnswer(chatId, userName, answer);
             } else {
-                answer = "Òàêîãî óðîâíÿ íåò. Áîò ïîääåðæèâàåò 4 óðîâíÿ";
+                answer = "Ð¢Ð°ÐºÐ¾Ð³Ð¾ ÑƒÑ€Ð¾Ð²Ð½Ñ Ð½ÐµÑ‚. Ð‘Ð¾Ñ‚ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ 4 ÑƒÑ€Ð¾Ð²Ð½Ñ";
                 setAnswer(chatId, userName, answer);
             }
         } else {
-            answer = "Áîò âàñ íå ïîíèìàåò. Åñëè ó âàñ âîçíèêëè ñëîæíîñòè, " +
-                    "òî âû âñåãäà ìîæåòå îáðàòèòüñÿ çà ïîìîùüþ ïî êîìàíäå \n/help";
+            answer = "Ð‘Ð¾Ñ‚ Ð½Ðµ Ð·Ð½Ð°ÐµÑŒ Ñ‚Ð°ÐºÐ¾Ð¹ ÐºÐ¾Ð¼Ð¼Ð°Ð½Ð´Ñ‹, " +
+                    "ÐµÑÐ»Ð¸ Ñƒ Ð²Ð°Ñ Ð²Ð¾Ð·Ð½Ð¸ÐºÐ»Ð¸ Ñ‚Ñ€ÑƒÐ´Ð½Ð¾ÑÑ‚Ð¸, Ñ‚Ð¾ Ð²Ñ‹ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð¾Ð±Ñ€Ð°Ñ‚Ð¸Ñ‚ÑŒÑÑ Ð·Ð° Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ \n/help";
             setAnswer(chatId, userName, answer);
         }
     }
@@ -82,7 +82,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         try {
             execute(answer);
         } catch (TelegramApiException e) {
-            LOGGER.error("Îøèáêà ïðè îòïðàâêå îòâåòà", e);
+            LOGGER.error("ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð°Ñ Ð¾ÑˆÐ¸Ð±ÐºÐ°", e);
         }
     }
 }

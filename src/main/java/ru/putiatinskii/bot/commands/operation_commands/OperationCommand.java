@@ -33,11 +33,11 @@ public abstract class OperationCommand extends BotCommand {
         try {
             absSender.execute(createDocument(chatId, operations, description));
         } catch (IOException | RuntimeException e) {
-            logger.error(String.format("Ошибка %s. Команда %s. Пользователь: %s", e.getMessage(), commandName, userName));
+            logger.error(String.format("РћС€РёР±РєР° %s. РљРѕРјР°РЅРґР° %s. РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ: %s", e.getMessage(), commandName, userName));
             sendError(absSender, chatId, commandName, userName);
             e.printStackTrace();
         } catch (TelegramApiException e) {
-            logger.error(String.format("Ошибка %s. Команда %s. Пользователь: %s", e.getMessage(), commandName, userName));
+            logger.error(String.format("РћС€РёР±РєР° %s. РљРѕРјР°РЅРґР° %s. РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ: %s", e.getMessage(), commandName, userName));
             e.printStackTrace();
         }
     }
@@ -52,9 +52,9 @@ public abstract class OperationCommand extends BotCommand {
 
     private void sendError(AbsSender absSender, Long chatId, String commandName, String userName) {
         try {
-            absSender.execute(new SendMessage(chatId.toString(), "Похоже, я сломался. Попробуйте позже"));
+            absSender.execute(new SendMessage(chatId.toString(), "РџРѕС…РѕР¶Рµ, СЏ СЃР»РѕРјР°Р»СЃСЏ. РџРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕР·Р¶Рµ"));
         } catch (TelegramApiException e) {
-            logger.error(String.format("Ошибка %s. Команда %s. Пользователь: %s", e.getMessage(), commandName, userName));
+            logger.error(String.format("РћС€РёР±РєР° %s. РљРѕРјР°РЅРґР° %s. РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ: %s", e.getMessage(), commandName, userName));
             e.printStackTrace();
         }
     }

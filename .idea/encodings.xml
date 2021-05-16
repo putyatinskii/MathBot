@@ -2,7 +2,17 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/calculate/OperationService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/commands/operation_commands/DivisionCommand.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/commands/operation_commands/MinusCommand.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/commands/operation_commands/MultiplicationCommand.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/commands/operation_commands/OperationCommand.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/commands/operation_commands/SquaringCommand.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/commands/service_commands/HelpCommand.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/commands/service_commands/ServiceCommand.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/commands/service_commands/StartCommand.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/ru/putiatinskii/bot/generation_doc/WordGenerator.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>

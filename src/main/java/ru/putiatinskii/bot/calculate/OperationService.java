@@ -25,7 +25,7 @@ public class OperationService {
         taskList.addAll(getTaskList(operations, lvl));
 
         if (taskList.isEmpty()) {
-            throw new IllegalArgumentException(String.format("По непонятным причинам не удалось создать ни одной строки "));
+            throw new IllegalArgumentException(String.format("РџРѕ РЅРµРїРѕРЅСЏС‚РЅС‹Рј РїСЂРёС‡РёРЅР°Рј РЅРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ РЅРё РѕРґРЅРѕР№ СЃС‚СЂРѕРєРё "));
         }
         return fileProcessor.createWordFile(taskList);
     }
@@ -65,8 +65,8 @@ public class OperationService {
         } else if (operationsCount == 4) {
             return linesCount / 4;
         } else {
-            throw new IllegalArgumentException("Количество операций для формирования файла с заданиями на " +
-                    "сложение-вычитание больше 2");
+            throw new IllegalArgumentException("РљРѕР»РёС‡РµСЃС‚РІРѕ РѕРїРµСЂР°С†РёР№ РґР»СЏ С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ С„Р°Р№Р»Р° СЃ Р·Р°РґР°РЅРёСЏРјРё РЅР° " +
+                    "СЃР»РѕР¶РµРЅРёРµ-РІС‹С‡РёС‚Р°РЅРёРµ Р±РѕР»СЊС€Рµ 2");
         }
     }
 }

@@ -33,8 +33,8 @@ public class WordGenerator {
     }
 
     private void setRunParameters(XWPFRun run, String task) {
-        run.setFontSize(20);//נאחלונ רנטפעא
-        run.setFontFamily("Calibri");//עטן רנטפעא
+        run.setFontSize(20);
+        run.setFontFamily("Calibri");
         run.setText(task);
     }
 
