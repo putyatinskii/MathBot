@@ -12,7 +12,7 @@ import java.util.Collections;
 
 public class MultiplicationCommand extends OperationCommand{
 
-    private Logger logger = LoggerFactory.getLogger(MultiplicationCommand.class);
+    private Logger LOGGER = LoggerFactory.getLogger(MultiplicationCommand.class);
 
     public MultiplicationCommand(String identifier, String description) {
         super(identifier, description);
@@ -22,11 +22,11 @@ public class MultiplicationCommand extends OperationCommand{
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         String userName = Utils.getUserName(user);
 
-        logger.debug(String.format("Пользователь %s. Начато выполнение команды %s", userName,
+        LOGGER.debug(String.format("Пользователь %s. Начато выполнение команды %s", userName,
                 this.getCommandIdentifier()));
         sendAnswer(absSender, chat.getId(), Collections.singletonList(Operations.MULTIPLICATION), this.getDescription(),
                 this.getCommandIdentifier(), userName);
-        logger.debug(String.format("Пользователь %s. Завершено выполнение команды %s", userName,
+        LOGGER.debug(String.format("Пользователь %s. Завершено выполнение команды %s", userName,
                 this.getCommandIdentifier()));
     }
 }

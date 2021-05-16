@@ -9,7 +9,6 @@ import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.putiatinskii.bot.Bot;
-import ru.putiatinskii.bot.LEVEL;
 import ru.putiatinskii.bot.Operations;
 import ru.putiatinskii.bot.calculate.Calculator;
 import ru.putiatinskii.bot.calculate.OperationService;
@@ -29,9 +28,6 @@ public abstract class OperationCommand extends BotCommand {
         this.service = new OperationService(new WordGenerator(), new Calculator());
     }
 
-    /**
-     * Отправка ответа пользователю
-     */
     void sendAnswer(AbsSender absSender, Long chatId, List<Operations> operations, String description,
                     String commandName, String userName) {
         try {
@@ -46,12 +42,6 @@ public abstract class OperationCommand extends BotCommand {
         }
     }
 
-    /**
-     * Создание документа для отправки пользователю
-     * @param chatId id чата
-     * @param operations список типов операций (сложение и/или вычитание)
-     * @param fileName имя, которое нужно присвоить файлу
-     */
     private SendDocument createDocument(Long chatId, List<Operations> operations, String fileName) throws IOException {
         FileInputStream stream = service.getOperationFile(operations, Bot.getLvl());
         SendDocument document = new SendDocument();
@@ -60,9 +50,6 @@ public abstract class OperationCommand extends BotCommand {
         return document;
     }
 
-    /**
-     * Отправка пользователю сообщения об ошибке
-     */
     private void sendError(AbsSender absSender, Long chatId, String commandName, String userName) {
         try {
             absSender.execute(new SendMessage(chatId.toString(), "Похоже, я сломался. Попробуйте позже"));

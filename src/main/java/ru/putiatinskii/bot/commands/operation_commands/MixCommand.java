@@ -8,12 +8,12 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 import ru.putiatinskii.bot.Operations;
 import ru.putiatinskii.bot.Utils;
 
-import java.util.Collections;
+import java.util.Arrays;
 
-public class MinusCommand extends  OperationCommand {
-    private Logger LOGGER = LoggerFactory.getLogger(MinusCommand.class);
+public class MixCommand extends OperationCommand{
+    private Logger LOGGER = LoggerFactory.getLogger(MixCommand.class);
 
-    public MinusCommand(String identifier, String description) {
+    public MixCommand(String identifier, String description) {
         super(identifier, description);
     }
 
@@ -23,8 +23,15 @@ public class MinusCommand extends  OperationCommand {
 
         LOGGER.debug(String.format("Пользователь %s. Начато выполнение команды %s", userName,
                 this.getCommandIdentifier()));
-        sendAnswer(absSender, chat.getId(), Collections.singletonList(Operations.SUBTRACTION), this.getDescription(),
-                this.getCommandIdentifier(), userName);
+        sendAnswer(absSender, chat.getId(), Arrays.asList(
+                Operations.ADDITION,
+                Operations.SUBTRACTION,
+                Operations.MULTIPLICATION,
+                Operations.DIVISION),
+                this.getDescription(),
+                this.getCommandIdentifier(),
+                userName
+        );
         LOGGER.debug(String.format("Пользователь %s. Завершено выполнение команды %s", userName,
                 this.getCommandIdentifier()));
     }

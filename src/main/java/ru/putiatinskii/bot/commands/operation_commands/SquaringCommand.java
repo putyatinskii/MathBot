@@ -11,7 +11,7 @@ import ru.putiatinskii.bot.Utils;
 import java.util.Collections;
 
 public class SquaringCommand extends OperationCommand {
-    private Logger logger = LoggerFactory.getLogger(SquaringCommand.class);
+    private Logger LOGGER = LoggerFactory.getLogger(SquaringCommand.class);
 
     public SquaringCommand(String identifier, String description) {
         super(identifier, description);
@@ -21,11 +21,11 @@ public class SquaringCommand extends OperationCommand {
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         String userName = Utils.getUserName(user);
 
-        logger.debug(String.format("Пользователь %s. Начато выполнение команды %s", userName,
+        LOGGER.debug(String.format("Пользователь %s. Начато выполнение команды %s", userName,
                 this.getCommandIdentifier()));
         sendAnswer(absSender, chat.getId(), Collections.singletonList(Operations.SQUARING), this.getDescription(),
                 this.getCommandIdentifier(), userName);
-        logger.debug(String.format("Пользователь %s. Завершено выполнение команды %s", userName,
+        LOGGER.debug(String.format("Пользователь %s. Завершено выполнение команды %s", userName,
                 this.getCommandIdentifier()));
     }
 }

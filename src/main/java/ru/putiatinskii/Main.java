@@ -6,10 +6,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import ru.putiatinskii.bot.Bot;
 
-import java.util.Map;
-
 public class Main {
-    //private static final Map<String, String> getenv = System.getenv();
 
     public static void main(String[] args) {
         try {

@@ -28,6 +28,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         register(new MultiplicationCommand("multiplication", "Умножение"));
         register(new DivisionCommand("division", "Деление"));
         register(new SquaringCommand("squaring", "Возведение в квадрат"));
+        register(new MixCommand("mix", "Сложение, вычитание, умножение и деление"));
     }
 
     public static LEVEL getLvl() {
@@ -74,12 +75,6 @@ public class Bot extends TelegramLongPollingCommandBot {
         return (userName != null) ? userName : String.format("%s %s", user.getLastName(), user.getFirstName());
     }
 
-    /**
-     * Отправка ответа
-     * @param chatId id чата
-     * @param userName имя пользователя
-     * @param text текст ответа
-     */
     private void setAnswer(Long chatId, String userName, String text) {
         SendMessage answer = new SendMessage();
         answer.setText(text);
@@ -87,7 +82,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         try {
             execute(answer);
         } catch (TelegramApiException e) {
-            //логируем сбой Telegram Bot API, используя userName
+            LOGGER.error("Ошибка при отправке ответа", e);
         }
     }
 }
